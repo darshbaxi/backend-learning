@@ -52,6 +52,7 @@ async function initial() {
 }
 
 // -------
+require('./app/routes/auth.routes')(app)
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

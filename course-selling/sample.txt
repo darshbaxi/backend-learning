@@ -9,3 +9,21 @@ Add a database (mongodb), use dotenv to store the database connection string
 Add middlewares for user and admin auth
 Complete the routes for user login, signup, purchase a course, see course (Extra points - Use express routing to better structure your routes)
 Create the frontend
+
+
+
+
+| API                    | Method | Purpose                      |
+| ---------------------- | ------ | ---------------------------- |
+| `/courses`             | POST   | Create a new course          |
+| `/courses/:id`         | PUT    | Update course details        |
+| `/courses/:id`         | DELETE | Delete a course              |
+| `/courses/:id/publish` | PATCH  | Publish / unpublish course   |
+| `/courses/admin`       | GET    | Get courses created by admin |
+
+| API               | Method | Purpose                    |
+| ----------------- | ------ | -------------------------- |
+| `/courses`        | GET    | List all published courses |
+| `/courses/:id`    | GET    | Get course details         |
+| `/courses/search` | GET    | Search courses (optional)  |
+
