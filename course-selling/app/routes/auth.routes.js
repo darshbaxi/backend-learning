@@ -1,8 +1,8 @@
 
-const {signin,signup} = require("../controllers/auth.controller");
+const {signin,signup} = require("../controllers/auth.controllers");
 const {checkDupliacteEmail,checkRolesExisted} = require("../middlewares/verifySignup")
 
-modeule.exports = function(app){
+module.exports = app=>{
     app.use(function(req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",

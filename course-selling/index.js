@@ -53,6 +53,9 @@ async function initial() {
 
 // -------
 require('./app/routes/auth.routes')(app)
+require('./app/routes/course.routes')(app)
+require('./app/routes/purchase.routes')(app)
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

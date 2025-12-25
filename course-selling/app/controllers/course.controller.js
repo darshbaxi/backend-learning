@@ -2,10 +2,11 @@ const db = require("../models")
 
 
 const Course = db.course
+const Purchase = db.purchase
 // ----------------------------------for admin-------------------------------------
 
 // create course 
-async function creteCourse(req,res){
+async function createCourse(req,res){
     try{
         const {title, description, price, imageUrl} =req.body
         const course = await Course.create({
@@ -136,9 +137,8 @@ async function getAllCourses(req, res) {
 // course with id
 async function getCourseById(req, res) {
   try {
-    const { id } = req.params;
-
-    const course = await Course.findById(id)
+    const { courseId } = req.params;
+    const course = await Course.findById(courseId)
       .populate("creatorId", "firstName lastName email");
 
     if (!course) {
@@ -159,11 +159,33 @@ async function getCourseById(req, res) {
   }
 };
 
+//  course that I purchased
+async function getMyCourses(req, res) {
+  try {
+    const userId = req.userId;
+    const purchases = await Purchase.find({ userId })
+      .populate("courseId");
+
+    const courses = purchases.map(p => p.courseId);
+
+    res.status(200).json({
+      courses
+    });
+
+  } catch (err) {
+    res.status(500).json({
+      message: "Failed to fetch purchased courses",
+      error: err.message
+    });
+  }
+};
+
 module.exports ={
-    creteCourse,
+    createCourse,
     updateCourse,
     deleteCourse,
     getCreatorCourses,
     getAllCourses,
-    getCourseById
+    getCourseById,
+    getMyCourses
 }

@@ -17,13 +17,17 @@ Create the frontend
 | ---------------------- | ------ | ---------------------------- |
 | `/courses`             | POST   | Create a new course          |
 | `/courses/:id`         | PUT    | Update course details        |
-| `/courses/:id`         | DELETE | Delete a course              |
-| `/courses/:id/publish` | PATCH  | Publish / unpublish course   |
+| `/courses/:id`         | DELETE | Delete a course              |  |
 | `/courses/admin`       | GET    | Get courses created by admin |
 
 | API               | Method | Purpose                    |
 | ----------------- | ------ | -------------------------- |
 | `/courses`        | GET    | List all published courses |
 | `/courses/:id`    | GET    | Get course details         |
-| `/courses/search` | GET    | Search courses (optional)  |
+
+
+| API                    | Method | Purpose                |
+| ---------------------- | ------ | ---------------------- |
+| `/purchases/:courseId` | POST   | Buy/enroll in a course |
+
 

@@ -10,14 +10,11 @@ async function signup(req, res) {
   try {
   
     const user = new User({
-      firstName: user.firstName,
-      lastName: user.lastName,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8)
     });
-
-    await user.save();
-
     
     if (req.body.roles && req.body.roles.length > 0) {
       const roles = await Role.find({
@@ -41,10 +38,11 @@ async function signup(req, res) {
 
 
 async function signin(req, res) {
+  // console.log(req.body.email)
   try {
-   
+    // console.log(req.body.email)
     const user = await User.findOne({
-      username: req.body.email
+      email : req.body.email
     }).populate("roles", "-__v");
 
     if (!user) {
