@@ -69,4 +69,5 @@ const getUserbyusername = async <Key extends keyof User>(username:string,
 
 
 
+
 export default {getUser, createUser, getUserbyemail, getUserbyusername}

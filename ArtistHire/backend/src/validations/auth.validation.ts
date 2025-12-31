@@ -11,5 +11,17 @@ const register = {
   })
 }
 
+const login = {
+  body: Joi.object().keys({
+    email: Joi.string().required(),
+    password: Joi.string().required()
+  })
+}
 
-export default {register}
+const logout = {
+  body: Joi.object().keys({
+    refreshToken: Joi.string().required()
+  })
+}
+
+export default {register,login,logout}

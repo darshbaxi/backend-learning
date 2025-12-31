@@ -11,5 +11,7 @@ router.get('/', auth(), authController.getUser)
 
 router.post('/register',validate(authValidator.register),authController.register)
 
+router.post('/login',validate(authValidator.login),authController.login)
 
+router.post('/logout',validate(authValidator.logout),authController.logout)
 export default router
